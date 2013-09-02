@@ -57,6 +57,7 @@ def nway_to_alignment(args):
             no_of_strains = int(float(len(xx) - 5)/float(3) + 1)
         else:
             no_of_strains = int(float(len(xx) - 5)/float(3))
+        print "Alignment will contain %i no_of_strains" % no_of_strains
         n = 4 + no_of_strains
         m = 3 + no_of_strains
         names = xx[4:n]
@@ -87,7 +88,7 @@ def nway_to_alignment(args):
             f.write(matrix[i]+'\n')
         f.close()
         print "The alignment contains %i columns" % (count)
-
+        assert i+1 == no_of_strains, "Input and output strains don't match"
 
 if __name__ == '__main__':
     try:
